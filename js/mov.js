@@ -8,12 +8,12 @@ function mov(obj)
 	if(obj.userData.type == CAR){
 		if(leftPressed)
 		{
-			obj.rotation.y += 2*delta;
+			obj.rotation.y += 2*delta*obj.userData.vel/50;
 		}
 		
 		if(rightPressed)
 		{
-			obj.rotation.y += -2*delta;;
+            obj.rotation.y += -2 * delta * obj.userData.vel/50;
 		}
 	}
 
@@ -68,14 +68,19 @@ function movUniform(obj, nrObj, radius)
 			obj[i].userData.vel += 5;
 		}
 		
-		var newdist = obj[i].userData.vel*delta;
-		obj[i].userData.distX += newdist;
-		obj[i].position.set(obj[i].userData.distX, obj[i].position.y, obj[i].position.z);
-		obj[i].rotation.z -= newdist/radius;
+        var newdist = obj[i].userData.vel * delta;
+        var newdistX = newdist * Math.cos(obj[i].userData.rot);
+        var newdistZ = newdist * Math.sin(obj[i].userData.rot);
+        obj[i].userData.distX += newdistX;
+        var posZ = obj[i].position.z + newdistZ;
+        obj[i].position.set(obj[i].userData.distX, obj[i].position.y, posZ);
+        obj[i].rotation.y = -obj[i].userData.rot;
+        obj[i].rotation.z -= Math.abs(newdist / radius);
 		
-		if(obj[i].position.x >= track.userData.xMax )
-		{
-			newPosition(obj[i]);
+        if (obj[i].position.x >= track.userData.xMax || obj[i].position.z >= track.userData.zMax || obj[i].position.x <= track.userData.xMin || obj[i].position.z <= track.userData.zMin)
+        {
+            newPosition(obj[i]);
+            newRotation(obj[i], getRandomInt(0, 180));
 		}
 	}
 

@@ -35,7 +35,8 @@ function createOrange(x,y,z){
   mesh.userData = {Phong: material, Lambert: materials[Lambert][ORANGE]["Base"], Basic: materials[Basic][ORANGE]["Base"]};
 
   var randomVel = getRandomInt(10, 30);
-  orange.userData = { vel: randomVel, distX: x, type: ORANGE};
+  var randomRot = getRandomInt(0, 180);
+  orange.userData = { vel: randomVel, distX: x, type: ORANGE, rot: randomRot};
   
   orange.add(mesh);
   orange.position.set(x,y,z);
@@ -86,4 +87,8 @@ function resetOranges()
       var randomVel = getRandomInt(10, 30);
       oranges[i].userData.vel = randomVel;
     }
+}
+
+function newRotation(orange, rotation) {
+    orange.userData.rot = rotation;
 }
