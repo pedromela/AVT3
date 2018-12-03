@@ -8,6 +8,8 @@ function addCheerios(ncherios)
    	var stepangle = angle*i;
    	var torus = new THREE.Object3D();
    	var geometry = new THREE.TorusGeometry( 1, 0.5, 6, 50);
+	geometry.castShadow = true; 
+    geometry.receiveShadow = true;
    	var material = 	materials[Phong][CHEERIO]["Base"];
    	var mesh = new THREE.Mesh( geometry, material );
 

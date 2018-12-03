@@ -2,25 +2,37 @@ function createDirectionalLight()
 {
         var pointColor = "#ffffff";
         directionalLight = new THREE.DirectionalLight(pointColor);
-        directionalLight.position.set(-30, 30, 0);
+        directionalLight.position.set( 500, 100, 150 );
 
-  		directionalLight.castShadow = true;
           
-  		    directionalLight.shadow.camera.near = 200;
-          directionalLight.shadow.camera.far = 100;
-          directionalLight.shadow.camera.left = -100;
-          directionalLight.shadow.camera.right = 100;
-          directionalLight.shadow.camera.top = 50;
-          directionalLight.shadow.camera.bottom = 20;
+  		directionalLight.shadow.camera.near = 0.35;
+        directionalLight.shadow.camera.far = 100;
+        directionalLight.shadow.camera.left = -100;
+        directionalLight.shadow.camera.right = 100;
+        directionalLight.shadow.camera.top = 50;
+        directionalLight.shadow.camera.bottom = -50;
 
-          directionalLight.distance = 50;
-          directionalLight.intensity = 1;
-          directionalLight.shadow.mapSize.height = 100;
-          directionalLight.shadow.mapSize.width = 100;
+        directionalLight.distance = 50;
+        directionalLight.intensity = 1;
+        directionalLight.shadow.mapSize.height = 100;
+        directionalLight.shadow.mapSize.width = 100;
   		directionalLight.shadowMapDarkness = 0.5;
-
+		directionalLight.castShadow = true;
+		directionalLight.receiveShadow = true;
 
         scene.add(directionalLight);
+
+		
+		// Add directional light
+ 		var spot_light = new THREE.SpotLight(pointColor, 2);
+		spot_light.position.set( 250, 50, 75 );
+		spot_light.target = scene;
+		spot_light.castShadow = true;
+		spot_light.receiveShadow = true;
+  		spot_light.shadowMapDarkness = 0.5;
+  		spot_light.shadow.camera.near = 0.5; 
+		scene.add(spot_light);		
+		
 }
 
 function createAmbientLight()
@@ -37,6 +49,8 @@ function createCandle(x,y,z)
         'use strict';
         var candle = new THREE.PointLight(0xD3D3D3,2,120,2);
         candle.position.set(x,y,z);
+		candle.castShadow = true;            // default false
+
         //candle.add(new THREE.AxisHelper(10));
         candles.push(candle);
         scene.add(candle);
@@ -60,6 +74,10 @@ function createSpotLight(x, y, z)
      'use strict';
       var spotLight = new THREE.SpotLight(0xffffff,3,100,0.2,0.2,1.5);
       spotLight.position.set(x,y,z);
+	  spotLight.castShadow = true;
+	  spotLight.receiveShadow = true;
+	  spotLight.shadow.darkness = 0.5;
+	  spotLight.shadow.camera.near = 0.35;
       return spotLight;
 }
 
@@ -68,6 +86,10 @@ function addLanternLight(obj, target, x, y, z)
   var lantern = createSpotLight(x, y, z);
   lantern.target = target;
   //lantern.add(new THREE.AxisHelper(10));
+  lantern.castShadow = true;
+  lantern.receiveShadow = true;
+  lantern.shadow.darkness = 0.5;
+  lantern.shadow.camera.near = 0.35;
   car.add(lantern);
   return lantern;
 }

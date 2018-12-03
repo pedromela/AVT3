@@ -29,6 +29,8 @@ function createOrange(x,y,z){
 
   var material  = materials[Phong][ORANGE]["Base"];
   var geometry  = new THREE.SphereGeometry(4,10,10);
+  geometry.castShadow = true;
+
   var mesh = new THREE.Mesh(geometry,material);
   mesh.userData = {Phong: material, Lambert: materials[Lambert][ORANGE]["Base"], Basic: materials[Basic][ORANGE]["Base"]};
 

@@ -28,8 +28,9 @@ function createButter(x,y,z){
   var butter  = new THREE.Object3D();
 
   var geometry = new THREE.CubeGeometry(8,8,8);
+  geometry.castShadow = true; 
+  geometry.receiveShadow = true;
   var material = materials[Phong][BUTTER]["Base"];
-  butter.castShadow = true; 
 
   var cube = new THREE.Mesh( geometry, material );
   cube.userData = {Phong: material, Lambert: materials[Lambert][BUTTER]["Base"], Basic: materials[Basic][BUTTER]["Base"]}

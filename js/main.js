@@ -30,6 +30,8 @@ var fogColor = 0xA9A8AD;
 var clock = new THREE.Clock();
 var oldmoment = 0;
 
+var cubeShadow;
+
 var leftPressed = false;
 var rightPressed = false;
 
@@ -82,6 +84,9 @@ var carLives = [];
 var nlives = 5;
 var gameOver = false;
 
+
+var lightPosition4D = new THREE.Vector4();
+			
 function render(cameratype){
 	'use strict'
 
@@ -89,10 +94,11 @@ function render(cameratype){
 	
 	renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
 	
+	
 	switch (cameratype) {
 			
 			case "cameraCar":
-				scene.fog = new THREE.Fog(fogColor, 0.0025, 75);
+				scene.fog = new THREE.FogExp2(fogColor, 0.025);
 				renderer.render(scene, cameraCar);
 				break;
 			
@@ -130,6 +136,9 @@ function init(){
 	document.body.appendChild(renderer.domElement);
 
 	renderer.autoClear = false; //importante
+	
+	renderer.shadowMap.enabled = true;
+	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 	
 	fillMaterials();
 

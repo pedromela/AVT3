@@ -13,6 +13,7 @@ function createCamera(){
  	cameraOrtog.position.z = 0;
 
  	cameraOrtog.lookAt(scene.position);
+	cameraOrtog.useQuaternion = true;
 
  	cameras[Orto] = cameraOrtog;
  	
@@ -41,6 +42,7 @@ function createCamera(){
 	cameraCar.position.x = -16;
  	cameraCar.position.y = 8;
  	cameraCar.position.z = 0;
+	cameraCar.useQuaternion = true;
 
 	cameraCar.lookAt(new THREE.Vector3(1,-1,0));
 

@@ -13,6 +13,7 @@ function createFloor(x,y,z){
     material.map = texture;
 	
     geometry = new THREE.CubeGeometry(400,50,400);
+	geometry.receiveShadow = true;
     mesh = new THREE.Mesh(geometry,material);
 	mesh.userData = {Phong: material, Lambert: materials[Lambert][TRACK]["Base"], Basic: materials[Basic][TRACK]["Base"]};
 
@@ -25,7 +26,6 @@ function createFloor(x,y,z){
 	
 	track.userData = {zMin: -200, zMax: 200, xMin: -200, xMax: 200} 
 
-	track.castShadow = true;
     scene.add(track);
 
     track.position.x = x;

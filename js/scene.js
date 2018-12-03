@@ -3,9 +3,9 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
 
 	scene = new THREE.Scene();
 	
-	scene.background = fogColor;
+	//scene.background = fogColor;
 	scene.autoUpdate = true;
-	scene.fog = new THREE.Fog(fogColor, 0.0025, 150);
+	//scene.fog = new THREE.Fog(fogColor, 0.0025, 150);
 
 	createFloor(0, -10, 0);
 	createCar(30, 17, 10);
@@ -14,12 +14,13 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
   	addCheerios(ncherios2); //creates the outher ring
 
   	addButter(nbutters);
-  	addOranges(noranges);
+  	addOranges(noranges);	
 	
 	createDirectionalLight();
 	createAmbientLight();
 	addCandles(numCandles);
 	addLight( 0.55, 0.9, 0.5, 500, 100, 150 );
+	
 
 }
 

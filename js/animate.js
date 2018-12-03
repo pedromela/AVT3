@@ -32,7 +32,7 @@ function animate()
 			changeDayNight();
 			changeToBasic();
 			removeLanterns();
-
+			
 		}
 		gameEnd();
 		changeToPause();
