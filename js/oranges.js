@@ -29,9 +29,10 @@ function createOrange(x,y,z){
 
   var material  = materials[Phong][ORANGE]["Base"];
   var geometry  = new THREE.SphereGeometry(4,10,10);
-  geometry.castShadow = true;
-
+  
   var mesh = new THREE.Mesh(geometry,material);
+  mesh.castShadow = true;
+
   mesh.userData = {Phong: material, Lambert: materials[Lambert][ORANGE]["Base"], Basic: materials[Basic][ORANGE]["Base"]};
 
   var randomVel = getRandomInt(10, 30);

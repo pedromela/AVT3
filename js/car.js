@@ -36,7 +36,6 @@ function createCarInstance(obj, x, y, z)
   obj.position.x = x;
   obj.position.y = y; 
   obj.position.z = z;
-
   return obj;
 }
 
@@ -92,7 +91,8 @@ function addFrontCar(obj, x, y, z)
   mesh = new THREE.Mesh(geometry,material);
   mesh.userData = {Phong: material, Lambert: materials[Lambert][CAR]["Base"], Basic: materials[Basic][CAR]["Base"]};
   mesh.position.set(x, y, z);
-
+  obj.castShadow = true; 
+  obj.receiveShadow = true;
   obj.add(mesh);
 }
 

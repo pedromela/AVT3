@@ -1,7 +1,7 @@
 function createDirectionalLight()
 {
         var pointColor = "#ffffff";
-        directionalLight = new THREE.DirectionalLight(pointColor);
+/*         directionalLight = new THREE.DirectionalLight(pointColor);
         directionalLight.position.set( 500, 100, 150 );
 
           
@@ -20,18 +20,30 @@ function createDirectionalLight()
 		directionalLight.castShadow = true;
 		directionalLight.receiveShadow = true;
 
-        scene.add(directionalLight);
+        scene.add(directionalLight);  */
 
 		
 		// Add directional light
- 		var spot_light = new THREE.SpotLight(pointColor, 2);
-		spot_light.position.set( 250, 50, 75 );
+		
+		var spot_light = new THREE.DirectionalLight(pointColor);
+		spot_light.position.set(  200, 100, 75  );
 		spot_light.target = scene;
 		spot_light.castShadow = true;
 		spot_light.receiveShadow = true;
-  		spot_light.shadowMapDarkness = 0.5;
-  		spot_light.shadow.camera.near = 0.5; 
+		//spot_light.shadowMapWidth = 2048;
+		//spot_light.shadowMapHeight = 2048;
+		spot_light.shadowDarkness = 0.8;
+		spot_light.shadow.camera.near = 0.35;
+        spot_light.shadow.camera.left = -100;
+        spot_light.shadow.camera.right = 100;
+        spot_light.shadow.camera.top = -100;
+        spot_light.shadow.camera.bottom = 100;
+		
 		scene.add(spot_light);		
+		
+		//Create a helper for the shadow camera (optional)
+		var helper = new THREE.CameraHelper( spot_light.shadow.camera );
+		scene.add( helper );
 		
 }
 

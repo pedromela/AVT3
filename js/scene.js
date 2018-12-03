@@ -19,7 +19,7 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
 	createDirectionalLight();
 	createAmbientLight();
 	addCandles(numCandles);
-	addLight( 0.55, 0.9, 0.5, 500, 100, 150 );
+	addLight( 0.55, 0.9, 0.5, 400, 125, 150 );
 	
 
 }
