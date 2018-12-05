@@ -4,13 +4,20 @@ function createFloor(x,y,z){
     track  = new THREE.Object3D();
     material = 	materials[Phong][TRACK]["Base"];
 
-	var texture = new THREE.TextureLoader().load( "./cloth.jpg" );
+    var texture = new THREE.TextureLoader().load("./stone.jpg");
+    var mapHeight = new THREE.TextureLoader().load("./normal.jpg");
+
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set( 10, 10 );
-	
+
+    mapHeight.wrapS = THREE.RepeatWrapping;
+    mapHeight.wrapT = THREE.RepeatWrapping;
+    mapHeight.repeat.set(10, 10);
 	
     material.map = texture;
+    material.bumpMap = mapHeight;
+    material.bumpScale = 100;
 	
     geometry = new THREE.CubeGeometry(400,50,400);
 	geometry.receiveShadow = true;
@@ -19,13 +26,14 @@ function createFloor(x,y,z){
 
     mesh.userData.Lambert.map = texture;
     mesh.userData.Basic.map = texture;
-   
 
+    mesh.receiveShadow = true;
     track.add(mesh);
     
 	
 	track.userData = {zMin: -200, zMax: 200, xMin: -200, xMax: 200} 
 
+    mesh.receiveShadow = true;
     scene.add(track);
 
     track.position.x = x;

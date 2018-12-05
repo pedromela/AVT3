@@ -4,7 +4,6 @@ function fillMaterials()
 	materials[Lambert][CAR] = {};
 	materials[Basic][CAR] = {};
 	
-	
 	materials[Phong][CAR]["Wheels"] = new THREE.MeshPhongMaterial({emissive:0.02, shininess: 5, wireframe:false, side: THREE.DoubleSide});	
 	materials[Phong][CAR]["Wheels"].color.setRGB(0.01, 0.01, 0.01);
 	materials[Phong][CAR]["Wheels"].specular.setRGB(0.4, 0.4, 0.4);
@@ -73,12 +72,12 @@ function fillMaterials()
 	materials[Lambert][TRACK] = {};
 	materials[Basic][TRACK] = {};
 	
-	materials[Phong][TRACK]["Base"] = new THREE.MeshPhongMaterial({color: 0x004352, shininess: 10 ,wireframe:false});
+    materials[Phong][TRACK]["Base"] = new THREE.MeshPhongMaterial({ color: 0x404040, shininess: 10, wireframe: false});
 	materials[Phong][TRACK]["Base"].specular.setRGB(0.01, 0.01, 0.01);
 	
-	materials[Lambert][TRACK]["Base"] = new THREE.MeshLambertMaterial({color:0x004352, wireframe:false});
+    materials[Lambert][TRACK]["Base"] = new THREE.MeshLambertMaterial({ color: 0x404040, wireframe: false});
 	
-	materials[Basic][TRACK]["Base"] = new THREE.MeshBasicMaterial({color:0x008B8B, wireframe: false });
+    materials[Basic][TRACK]["Base"] = new THREE.MeshBasicMaterial({ color: 0x404040, wireframe: false});
 	
 	
 	

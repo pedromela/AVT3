@@ -273,7 +273,7 @@ function addLives(n)
 {
   var life;
   for(var i = 0; i < n; i++){
-    carLives.push(createCarInstance(life, -window.innerWidth/8 + i*10, 0, -window.innerHeight/8));
+    carLives.push(createCarInstance(life, -window.innerWidth/12 + i* 10, 0, -window.innerHeight/12));
     scene2.add(carLives[i]);
 
     carLives[i].traverse(function(child)

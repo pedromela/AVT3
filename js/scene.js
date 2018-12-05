@@ -26,7 +26,8 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
 
 function createScene2()
 {
-	scene2 = new THREE.Scene();
+    scene2 = new THREE.Scene();
+    scene.autoUpdate = true;
 	//scene2.add(new THREE.AxisHelper(10));
 	addLives(nlives);
 }
