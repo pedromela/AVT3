@@ -10,8 +10,8 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
 
 	createFloor(0, -10, 0);
     createCar(0, 17, 55);
-    createBillboard();
     createMirror();
+    createBillboard();
 
 	addCheerios(ncherios1); //creates the iner ring
   	addCheerios(ncherios2); //creates the outher ring

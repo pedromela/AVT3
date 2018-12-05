@@ -43,18 +43,21 @@ function createBillboard() {
     billboard.position.set(200, 28, -200);
     scene.add(billboard);*/
     var spriteMap = new THREE.TextureLoader().load("./tree.png");
-    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff });
+    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff, alphaTest:0.1 });
+
+    var d = 190;
+    var d2 = d / 10;
 
     for (var i = 0; i < 20; i++) {
         var billboard = new THREE.Sprite(spriteMaterial);
         billboard.scale.set(32, 32, 1.0);
-        billboard.position.set(i * 10 * 2 - 200, 27, 200);
+        billboard.position.set(i * d2 - d, 27, d);
         scene.add(billboard);
 
         
         var billboard = new THREE.Sprite(spriteMaterial);
         billboard.scale.set(32, 32, 1.0);
-        billboard.position.set(i * 10 * 2 - 200, 27, -200);
+        billboard.position.set(i * d2 - d, 27, -d);
         scene.add(billboard);
 
 
@@ -62,12 +65,12 @@ function createBillboard() {
         var billboard = new THREE.Sprite(spriteMaterial);
         billboard.scale.set(32, 32, 1.0);
         scene.add(billboard);
-        billboard.position.set(-200, 27, i * 10 * 2 - 200);
+        billboard.position.set(-d, 27, i * d2 - d);
 
 
         var billboard = new THREE.Sprite(spriteMaterial);
         billboard.scale.set(32, 32, 1.0);
-        billboard.position.set(200, 27, i * 10 * 2 - 200);
+        billboard.position.set(d, 27, i * d2 - d);
         scene.add(billboard);
     }
 
@@ -78,8 +81,8 @@ function createBillboard() {
         scene.add(billboard);
 
         var stepangle = angle * j;
-        var x = (Math.cos(stepangle) * 55 * Math.random() * 1.5);
-        var z = (Math.sin(stepangle) * 55 * Math.random() * 0.9);
+        var x = (Math.cos(stepangle) * 50 * Math.random() * 1.5);
+        var z = (Math.sin(stepangle) * 50 * Math.random() * 0.9);
 
         billboard.position.set(x, 27, z);
     }

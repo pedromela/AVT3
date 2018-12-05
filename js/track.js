@@ -20,6 +20,7 @@ function createFloor(x,y,z){
     material.bumpScale = 100;
     material.opacity = 0.85;
     material.transparent = true;
+    material.depthWrite = false;
 	
     geometry = new THREE.CubeGeometry(400,50,400);
     mesh = new THREE.Mesh(geometry,material);
