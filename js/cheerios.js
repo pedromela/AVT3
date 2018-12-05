@@ -65,17 +65,17 @@ function addCheerios(ncherios)
 
 	mesh.userData = {Phong: material, Lambert: materials[Lambert][CHEERIO]["Base"], Basic: materials[Basic][CHEERIO]["Base"]};
 	mesh.rotateX(Math.PI/2);
-  torus.add(mesh);
+     torus.add(mesh);
 
-  var cheeriodof = new THREE.Vector3(1, 0, 0);	//placeholder dof
+    var cheeriodof = new THREE.Vector3(1, 0, 0);	//placeholder dof
 	torus.userData = {vel: 0 , acc: 0, dist: 0, type:CHEERIO, dof: cheeriodof, drag: 40, x: 0, z: 0};
 	torus.position.x = torus.userData.x = (Math.cos(stepangle)*ncherios*1.5);
-  torus.position.y = 16;
-  torus.position.z = torus.userData.z = (Math.sin(stepangle)*ncherios*0.9);
+    torus.position.y = 16;
+    torus.position.z = torus.userData.z = (Math.sin(stepangle)*ncherios*0.9);
 
 	cheerios.push(torus);
 
-  scene.add(torus);
+    scene.add(torus);
   }
 
 }

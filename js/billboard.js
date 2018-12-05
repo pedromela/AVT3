@@ -1,0 +1,86 @@
+// JavaScript source code
+function createBillboard() {
+
+    //var geometry = new THREE.BufferGeometry();
+    /*var vertices = [];
+    var billboard = new THREE.TextureLoader().load('./tree.tga');
+
+    for (var i = 0; i < 20; i++) {
+        var x = i*5 - 200;
+        var y = 17;
+        var z = 200;
+        vertices.push(x, y, z);
+
+        var y = i * 5 - 200;
+        var y = 17;
+        var x = 200;
+        vertices.push(x, y, z);
+
+        var x = i * 5 - 200;
+        var y = 17;
+        var z = -200;
+        vertices.push(x, y, z);
+
+        var y = i * 5 - 200;
+        var y = 17;
+        var x = -200;
+        vertices.push(x, y, z);
+    }
+    
+    geometry.addAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+    material = new THREE.PointsMaterial({ size: 35, sizeAttenuation: false, map: billboard, alphaTest: 0.5, transparent: true });
+    material.color.setHSL(1.0, 0.3, 0.7);
+
+    var particles = new THREE.Points(geometry, material);
+    scene.add(particles);*/
+    /*var spriteMap = new THREE.TextureLoader().load("./tree.png");
+    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff });
+    var billboard = new THREE.Sprite(spriteMaterial);
+
+    billboard.scale.set(32, 32, 1.0);
+
+    billboard.position.set(200, 28, -200);
+    scene.add(billboard);*/
+    var spriteMap = new THREE.TextureLoader().load("./tree.png");
+    var spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff });
+
+    for (var i = 0; i < 20; i++) {
+        var billboard = new THREE.Sprite(spriteMaterial);
+        billboard.scale.set(32, 32, 1.0);
+        billboard.position.set(i * 10 * 2 - 200, 27, 200);
+        scene.add(billboard);
+
+        
+        var billboard = new THREE.Sprite(spriteMaterial);
+        billboard.scale.set(32, 32, 1.0);
+        billboard.position.set(i * 10 * 2 - 200, 27, -200);
+        scene.add(billboard);
+
+
+        
+        var billboard = new THREE.Sprite(spriteMaterial);
+        billboard.scale.set(32, 32, 1.0);
+        scene.add(billboard);
+        billboard.position.set(-200, 27, i * 10 * 2 - 200);
+
+
+        var billboard = new THREE.Sprite(spriteMaterial);
+        billboard.scale.set(32, 32, 1.0);
+        billboard.position.set(200, 27, i * 10 * 2 - 200);
+        scene.add(billboard);
+    }
+
+    var angle = 2 * Math.PI / 10;
+    for (var j = 0; j < 10; j++) {
+        var billboard = new THREE.Sprite(spriteMaterial);
+        billboard.scale.set(32, 32, 1.0);
+        scene.add(billboard);
+
+        var stepangle = angle * j;
+        var x = (Math.cos(stepangle) * 50 * Math.random() * 1.5);
+        var z = (Math.sin(stepangle) * 50 * Math.random() * 0.9);
+
+        billboard.position.set(x, 27, z);
+    }
+}
