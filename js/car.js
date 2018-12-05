@@ -2,7 +2,30 @@ function createCar(x, y, z)
 {
   'use strict';
 
-  car = createCarInstance(car, x, y, z);
+  //car = createCarInstance(car, x, y, z);
+
+  car  = new THREE.Object3D();
+
+  
+
+  var mtlLoader = new THREE.MTLLoader();
+  mtlLoader.load('./car/Chevrolet_Camaro_SS_High.mtl',function (materials){
+    materials.preload();
+
+    var objLoader = new THREE.OBJLoader();
+    objLoader.setMaterials(materials);
+
+    objLoader.load('./car/Chevrolet_Camaro_SS_High.obj', function(mesh){
+      mesh.rotation.y = Math.PI /2;
+      //mesh.scale.set(3,3,3);
+      car.add(mesh);
+    });
+
+  });
+
+  car.position.x = x;
+  car.position.y = y; 
+  car.position.z = z;
 
   var cardof = new THREE.Vector3(1, 0, 0);
   car.castShadow = true;
@@ -13,9 +36,8 @@ function createCar(x, y, z)
   var target1 = createTarget(car, 10, 0, -2);
   var target2 = createTarget(car, 10, 0, 2);
 
-  lanterns.push(addLanternLight(car, target1, -8.5, 1, -1));
-  lanterns.push(addLanternLight(car, target2, -8.5, 1, 1));
-
+    lanterns.push(addLanternLight(car, target1, -8.5, 1, -1));
+    lanterns.push(addLanternLight(car, target2, -8.5, 1, 1));
 }
 
 
@@ -36,7 +58,6 @@ function createCarInstance(obj, x, y, z)
   obj.position.x = x;
   obj.position.y = y; 
   obj.position.z = z;
-
   return obj;
 }
 
@@ -92,7 +113,8 @@ function addFrontCar(obj, x, y, z)
   mesh = new THREE.Mesh(geometry,material);
   mesh.userData = {Phong: material, Lambert: materials[Lambert][CAR]["Base"], Basic: materials[Basic][CAR]["Base"]};
   mesh.position.set(x, y, z);
-
+  obj.castShadow = true; 
+  obj.receiveShadow = true;
   obj.add(mesh);
 }
 

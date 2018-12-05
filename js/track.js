@@ -20,8 +20,9 @@ function createFloor(x,y,z){
     material.bumpScale = 100;
 	
     geometry = new THREE.CubeGeometry(400,50,400);
-	geometry.receiveShadow = true;
     mesh = new THREE.Mesh(geometry,material);
+	mesh.receiveShadow = true;
+
 	mesh.userData = {Phong: material, Lambert: materials[Lambert][TRACK]["Base"], Basic: materials[Basic][TRACK]["Base"]};
 
     mesh.userData.Lambert.map = texture;
