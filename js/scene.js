@@ -9,7 +9,7 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
 	//scene.fog = new THREE.Fog(fogColor, 0.0025, 150);
 
 	createFloor(0, -10, 0);
-    createCar(30, 17, 10);
+    createCar(0, 17, 55);
     createBillboard();
 
 	addCheerios(ncherios1); //creates the iner ring

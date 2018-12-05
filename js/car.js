@@ -308,7 +308,7 @@ function addLives(n)
 function resetCar()
 {
   car.userData.vel = 0;
-  car.position.set(30, 17, 10);
+  car.position.set(0, 17, 55);
   car.rotation.y = 0;
 
   nlives = 5;
