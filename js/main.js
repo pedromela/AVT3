@@ -153,8 +153,6 @@ function init(){
 	clock.start();
 
 	render(cameraAtual);
-	
-
 
 	window.addEventListener("resize", onResize);
 	window.addEventListener("keydown", onKeyDown);
