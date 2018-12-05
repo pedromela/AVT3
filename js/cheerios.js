@@ -70,7 +70,7 @@ function addCheerios(ncherios)
     var cheeriodof = new THREE.Vector3(1, 0, 0);	//placeholder dof
 	torus.userData = {vel: 0 , acc: 0, dist: 0, type:CHEERIO, dof: cheeriodof, drag: 40, x: 0, z: 0};
 	torus.position.x = torus.userData.x = (Math.cos(stepangle)*ncherios*1.5);
-    torus.position.y = 16;
+    torus.position.y = 15.5;
     torus.position.z = torus.userData.z = (Math.sin(stepangle)*ncherios*0.9);
 
 	cheerios.push(torus);

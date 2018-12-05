@@ -78,8 +78,8 @@ function createBillboard() {
         scene.add(billboard);
 
         var stepangle = angle * j;
-        var x = (Math.cos(stepangle) * 50 * Math.random() * 1.5);
-        var z = (Math.sin(stepangle) * 50 * Math.random() * 0.9);
+        var x = (Math.cos(stepangle) * 55 * Math.random() * 1.5);
+        var z = (Math.sin(stepangle) * 55 * Math.random() * 0.9);
 
         billboard.position.set(x, 27, z);
     }

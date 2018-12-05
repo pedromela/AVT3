@@ -18,6 +18,8 @@ function createFloor(x,y,z){
     material.map = texture;
     material.bumpMap = mapHeight;
     material.bumpScale = 100;
+    material.opacity = 0.85;
+    material.transparent = true;
 	
     geometry = new THREE.CubeGeometry(400,50,400);
     mesh = new THREE.Mesh(geometry,material);
