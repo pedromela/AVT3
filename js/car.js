@@ -9,13 +9,13 @@ function createCar(x, y, z)
   
 
   var mtlLoader = new THREE.MTLLoader();
-  mtlLoader.load('./Chevrolet_Camaro_SS_High.mtl',function (materials){
+  mtlLoader.load('./car/Chevrolet_Camaro_SS_High.mtl',function (materials){
     materials.preload();
 
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
 
-    objLoader.load('./Chevrolet_Camaro_SS_High.obj', function(mesh){
+    objLoader.load('./car/Chevrolet_Camaro_SS_High.obj', function(mesh){
       mesh.rotation.y = Math.PI /2;
       //mesh.scale.set(3,3,3);
       car.add(mesh);
