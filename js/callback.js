@@ -73,18 +73,24 @@ function onKeyDown(e)
 			removeDirectional = true;
 			break;
 
+		//tecla L
 		case 76:
 			removeCandle = true;
 			removeDirectional = true;
 			materialsBasic = true;
 			break;
 
+		//tecla F
+		case 70:
+			fogOFF = !fogOFF;
+			break;
+		
 		case 83: //tecla S
 			isPause = !isPause;
 			break;
 
 		case 72: //tecla H
-			removeLantern = true;
+			toggleLantern = true;
 			break;
 
 		case 82: //tecla R
@@ -254,9 +260,9 @@ function resetGame()
 	resetCheerios(numCheerios);
 }
 
-function removeLanterns()
+function toggleLanterns()
 {
-	if(removeLantern)
+	if(toggleLantern)
 	{
 		for(var i = 0; i < numLanterns; i++)
 		{
@@ -268,6 +274,6 @@ function removeLanterns()
 					lanterns[i].intensity = 0;
 		}
 		
-		removeLantern = false;
+		toggleLantern = false;
 	}
 }

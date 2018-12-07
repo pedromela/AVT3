@@ -27,6 +27,7 @@ var butterradius = Math.sqrt(32);
 var orangeradius = 4;
 var cheerioradius = 1.5;
 var fogColor = 0xA9A8AD;
+var fogFar = [ 75, 250, 150 ]; //Default distances
 var clock = new THREE.Clock();
 var oldmoment = 0;
 
@@ -38,6 +39,7 @@ var rightPressed = false;
 
 var changeFrame = false;
 var changeMaterial = false;
+var fogOFF = false;
 
 var frustum = 800;
 var aspect;
@@ -75,7 +77,7 @@ var materialsBasic = false;
 var isPause = false;
 
 var lanterns = [];
-var removeLantern = false;
+var toggleLantern = false;
 var numLanterns = 2;
 
 var box_pause;
@@ -94,21 +96,27 @@ function render(cameratype){
 	
 	renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
 	
-	
+	if(fogOFF){
+		var fogFar = [ -1, -1, -1 ]; //fog gone
+	}
+	else{
+		var fogFar = [ 75, 250, 150 ];	//fog active
+	}
+
 	switch (cameratype) {
 			
 			case "cameraCar":
-				scene.fog = new THREE.FogExp2(fogColor, 0.025);
+				scene.fog = new THREE.Fog(fogColor, 0.025, fogFar[0]);
 				renderer.render(scene, cameraCar);
 				break;
 			
 			case "cameraOrtog":
-				scene.fog = new THREE.Fog(fogColor, 0.0025, 250);
+				scene.fog = new THREE.Fog(fogColor, 0.0025, fogFar[1]);
 				renderer.render(scene, cameraOrtog);
 				break;
 			
 			case "cameraPerspective":
-				scene.fog = new THREE.Fog(fogColor, 0.0025, 150);
+				scene.fog = new THREE.Fog(fogColor, 0.0025, fogFar[2]);
 				renderer.render(scene, cameraPerspective);
 				break;
 			
