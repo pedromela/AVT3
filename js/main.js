@@ -55,7 +55,7 @@ var Phong = 1;
 var Basic = 2;
 var materials = [[],[],[]];
 
-
+var particles_materials = [];
 var Definition = 0;
 var Orto = 1;
 var Perspective = 2;
@@ -89,6 +89,12 @@ var gameOver = false;
 
 
 var lightPosition4D = new THREE.Vector4();
+
+var particle;
+var particles = []; 
+var particleImage = new Image(); //THREE.ImageUtils.loadTexture( "http://i.imgur.com/cTALZ.png" );
+particleImage.src = 'http://i.imgur.com/cTALZ.png'; 
+
 			
 function render(cameratype){
 	'use strict'
@@ -126,6 +132,8 @@ function render(cameratype){
 				break;
 		}
 		
+	
+	
 	renderer.clearDepth();
 	renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
 	renderer.render(scene2, cameraLives);
@@ -156,7 +164,8 @@ function init(){
 	createScene(innerCheerios,outerCheerios,7,5); // arguments: 1st- number of 
 	createScene2();
 	initMessages();
-
+	initParticleSystem();
+	
 	createCamera();
 
 	clock.start();

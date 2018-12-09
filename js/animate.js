@@ -25,7 +25,7 @@ function animate()
 		}
 
 		hasCollision(car,butters, numButter,carradius, butterradius, IGNORE);
-
+		UpdateParticleSystem();
 		changeWireFrame();
 		changeMaterials();
 		removeCandles();
