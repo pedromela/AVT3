@@ -9,7 +9,7 @@ var insetWidth =  10;
 
 var geometry, material, mesh;
 
-var car, track;
+var car, track, terrain;
 var cameraOrtog, cameraPerspective, cameraCar, cameraLives, cameraAtual;
 
 var trackCoord = [[-100,15],[20,-50],[-30,110],[-10,-100],[-20,20],[-2,-70],[-8,20],[-32,20],[120,-25],[170,-22],[34,-42],[5,-50],[50,20],[5,90],[-25,-45],[-5,30],[-150,-10],[-25,-20],[-3,-30],[20,-55],[-32,-47],[16,-40],[21,-180],[39,-49]];
@@ -81,6 +81,7 @@ var numLanterns = 2;
 var box_pause;
 
 var carLives = [];
+var cattails = [];
 var nlives = 5;
 var gameOver = false;
 

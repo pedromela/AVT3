@@ -41,7 +41,7 @@ function treatCollision(obj1, obj2)
 	if(obj1.userData.type == ORANGE && obj2.position.x != 30 && obj2.position.z != 10)
 	{
 		obj2.userData.vel = 0;
-		obj2.position.set(0, 17, 55);
+        obj2.position.set(0, 16.1, 55);
 		obj2.rotation.y = 0;
 		carLives[nlives-1].visible = false;
 		nlives -= 1;

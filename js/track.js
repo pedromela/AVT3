@@ -18,9 +18,9 @@ function createFloor(x,y,z){
     material.map = texture;
     material.bumpMap = mapHeight;
     material.bumpScale = 100;
-    material.opacity = 0.85;
+    /*material.opacity = 0.85;
     material.transparent = true;
-    material.depthWrite = false;
+    material.depthWrite = false;*/
 	
     geometry = new THREE.CubeGeometry(400,50,400);
     mesh = new THREE.Mesh(geometry,material);
@@ -43,4 +43,26 @@ function createFloor(x,y,z){
     track.position.x = x;
     track.position.y = y;
     track.position.z = z;
+
+    //car = createCarInstance(car, x, y, z);
+
+    /*terrain  = new THREE.Object3D();
+
+    var mtlLoader = new THREE.MTLLoader();
+    mtlLoader.load('./terrain/terrain.mtl',function (materials){
+        materials.preload();
+
+        var objLoader = new THREE.OBJLoader();
+        objLoader.setMaterials(materials);
+
+        objLoader.load('./terrain/terrain.obj', function(mesh){
+            mesh.rotation.y = Math.PI /2;
+            //mesh.scale.set(3,3,3);
+            terrain.add(mesh);
+        });
+
+    });
+    scene.add(terrain);
+
+    terrain.position.set(0, 20, 55);*/
 }

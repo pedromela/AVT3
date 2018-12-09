@@ -9,9 +9,10 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
 	//scene.fog = new THREE.Fog(fogColor, 0.0025, 150);
 
 	createFloor(0, -10, 0);
-    createCar(0, 17, 55);
+    createCar(0, 16.1, 55);
     createMirror();
     createBillboard();
+    createCattails(5);
 
 	addCheerios(ncherios1); //creates the iner ring
   	addCheerios(ncherios2); //creates the outher ring

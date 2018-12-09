@@ -1,0 +1,86 @@
+# Material Count: 7
+
+newmtl Cattail_01
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Map__12_Composite.jpg
+map_Ka textures/Map__12_Composite.jpg
+
+newmtl Cattail_02
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/cattail_2.jpg
+map_Bump textures/cattail_2_bump_map.jpg
+map_Ka textures/cattail_2.jpg
+
+newmtl Cattail_03
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/cattail_3.jpg
+map_Ka textures/cattail_3.jpg
+
+newmtl Cattail__Leaf_01
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Map__0_Composite.jpg
+map_Ka textures/Map__0_Composite.jpg
+
+newmtl Cattail__Leaf_02
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Map__3_Composite.jpg
+map_Ka textures/Map__3_Composite.jpg
+
+newmtl Cattail__Leaf_03
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Map__6_Composite.jpg
+map_Ka textures/Map__6_Composite.jpg
+
+newmtl Cattail__Leaf_04
+Ns 52.941176
+Ka 0.000000 0.000000 0.000000
+Kd 0.990000 0.990000 0.990000
+Ks 0.050000 0.050000 0.050000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Map__9_Composite.jpg
+map_Ka textures/Map__9_Composite.jpg

@@ -6,11 +6,10 @@ function createCar(x, y, z)
 
   car  = new THREE.Object3D();
 
-  
-
   var mtlLoader = new THREE.MTLLoader();
   mtlLoader.load('./car/Chevrolet_Camaro_SS_High.mtl',function (materials){
-    materials.preload();
+      materials.preload();
+      materials.transparent = true;
 
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
@@ -36,8 +35,8 @@ function createCar(x, y, z)
   var target1 = createTarget(car, 10, 0, -2);
   var target2 = createTarget(car, 10, 0, 2);
 
-    lanterns.push(addLanternLight(car, target1, -8.5, 1, -1));
-    lanterns.push(addLanternLight(car, target2, -8.5, 1, 1));
+    lanterns.push(addLanternLight(car, target1, 0, 1, -1));
+    lanterns.push(addLanternLight(car, target2, 0, 1, 1));
 }
 
 
@@ -308,7 +307,7 @@ function addLives(n)
 function resetCar()
 {
   car.userData.vel = 0;
-  car.position.set(0, 17, 55);
+  car.position.set(0, 16.1, 55);
   car.rotation.y = 0;
 
   nlives = 5;
