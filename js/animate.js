@@ -31,7 +31,7 @@ function animate()
 		removeCandles();
 		changeDayNight();
 		changeToBasic();
-		removeLanterns();
+		toggleLanterns();
 			
 	}
 	gameEnd();
