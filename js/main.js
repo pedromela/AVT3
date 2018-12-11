@@ -1,4 +1,4 @@
-var scene, scene2, renderer;
+var scene, scene2, renderer, effect;
 
 var textureLoader = new THREE.TextureLoader();
 var textureFlare0 = textureLoader.load( 'textures/lensflare/lensflare0.png' );
@@ -9,7 +9,7 @@ var insetWidth =  10;
 
 var geometry, material, mesh;
 
-var car, track, terrain;
+var car, track, terrain, controls;
 var cameraOrtog, cameraPerspective, cameraCar, cameraLives, cameraAtual;
 
 var trackCoord = [[-100,15],[20,-50],[-30,110],[-10,-100],[-20,20],[-2,-70],[-8,20],[-32,20],[120,-25],[170,-22],[34,-42],[5,-50],[50,20],[5,90],[-25,-45],[-5,30],[-150,-10],[-25,-20],[-3,-30],[20,-55],[-32,-47],[16,-40],[21,-180],[39,-49]];
@@ -40,6 +40,8 @@ var rightPressed = false;
 var changeFrame = false;
 var changeMaterial = false;
 var fogOFF = false;
+
+var stereo3D = true;
 
 var frustum = 800;
 var aspect;
@@ -113,8 +115,17 @@ function render(cameratype){
 	switch (cameratype) {
 			
 			case "cameraCar":
+
 				scene.fog = new THREE.Fog(fogColor, 0.025, fogFar[0]);
-				renderer.render(scene, cameraCar);
+
+				if ( stereo3D){
+					effect.render( scene, cameraCar );
+				}
+
+				else{
+					renderer.render(scene, cameraCar);
+				}
+
 				break;
 			
 			case "cameraOrtog":
@@ -156,17 +167,40 @@ function init(){
 	
 	renderer.shadowMap.enabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
+
+/* 	renderer.domElement.addEventListener('click', fullscreen, false);
+ */
+	effect = new THREE.StereoEffect( renderer );
+	effect.setSize( window.innerWidth, window.innerHeight );
 	
 	fillMaterials();
 
-	cameraAtual = "cameraOrtog";
-
+	cameraAtual = "cameraCar";
+	
 	createScene(innerCheerios,outerCheerios,7,5); // arguments: 1st- number of 
 	createScene2();
 	initMessages();
 	initParticleSystem();
 	
 	createCamera();
+
+	// Adds different controls if seen on mobile.
+    function setOrientationControls(e) {
+		// If device orientation is not available, return.
+		if (!e.alpha) {
+		  return;
+		}
+  
+		// Create controls for mobile.
+		controls = new THREE.DeviceOrientationControls(cameraCar, true);
+		controls.connect();
+		controls.update();
+  
+		renderer.domElement.addEventListener('click', fullscreen, false);
+  
+		window.removeEventListener('deviceorientation', setOrientationControls, true);
+	  }
+	  window.addEventListener('deviceorientation', setOrientationControls, true);
 
 	clock.start();
 

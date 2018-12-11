@@ -38,7 +38,7 @@ function treatCollision(obj1, obj2)
 	}
 	
 	
-	if(obj1.userData.type == ORANGE && obj2.position.x != 30 && obj2.position.z != 10)
+	if(obj1.userData.type == ORANGE && obj2.position.x != 0 && obj2.position.z != 55)
 	{
 		obj2.userData.vel = 0;
         obj2.position.set(0, 16.1, 55);

@@ -93,6 +93,9 @@ function onKeyDown(e)
 			toggleLantern = true;
 			break;
 
+		case 68: //tecla D
+			stereo3D = !stereo3D;
+
 		case 82: //tecla R
 			resetGame();
 			break;
