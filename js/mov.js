@@ -21,16 +21,36 @@ function mov(obj)
 	obj.userData.dist = obj.userData.vel*delta;
 
 	if(obj.userData.type == CAR){
+
+		//check board limits
 		if(Math.abs(obj.position.x) >= track.userData.xMax || Math.abs(obj.position.z) >= track.userData.zMax)
 		{
-			obj.userData.vel = 0;
-			obj.position.set(30, 17, 10);
-			obj.rotation.y = 0;
+			resetCar()
 			carLives[nlives-1].visible = false;
 			nlives -= 1;
 			console.log('colision');
+			updateScore(-2);
 			if (nlives == 0){gameOver = true;
 							console.log(gameOver)}
+		}
+
+		//checkpoints and score system
+		if(obj.position.x > 72 && obj.position.x < 120 && Math.abs(obj.position.z) < 3 && checkpoint == 0){
+			checkpoint = 1;
+			console.log("check1");
+		}
+		else if(obj.position.z < -44 && obj.position.z > -73 && Math.abs(obj.position.x) < 3 && checkpoint == 1){
+			checkpoint = 2;
+			console.log("check2");
+		}
+		else if(obj.position.x < -72 && obj.position.x > -120 && Math.abs(obj.position.z) < 3 && checkpoint == 2){
+			checkpoint = 3;
+			console.log("check3");
+		}
+		else if(obj.position.z > 44 && obj.position.z < 73 && Math.abs(obj.position.x) < 3 && checkpoint == 3){
+			checkpoint = 0;
+			updateScore(10);
+			console.log("lap");
 		}
 	}
 
