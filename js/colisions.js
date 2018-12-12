@@ -29,7 +29,8 @@ function treatCollision(obj1, obj2)
 		obj1.userData.dof = dof;
 
 		if(obj2.userData.type == CAR){
-			obj1.userData.vel = Math.abs(obj2.userData.vel*1.5);
+            obj1.userData.vel = Math.abs(obj2.userData.vel * 1.5);
+            //obj2.userData.vel = Math.abs(obj2.userData.vel * 0);
 		}
 		
 		if(obj2.userData.type == CHEERIO){

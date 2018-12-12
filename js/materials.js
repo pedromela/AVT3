@@ -51,16 +51,16 @@ function fillMaterials()
 	materials[Basic][ORANGE] = {};
 	
 	materials[Phong][ORANGE]["Base"] = new THREE.MeshPhongMaterial({shininess:27, wireframe: false});
-	materials[Phong][ORANGE]["Base"].color.setRGB(0.4,0.22,0.027);
+	materials[Phong][ORANGE]["Base"].color.setRGB(0.95,0.95,0.95);
 	materials[Phong][ORANGE]["Base"].specular.setRGB(0.1, 0.1, 0.1);
 	
 	materials[Lambert][ORANGE]["Base"] = new THREE.MeshLambertMaterial({wireframe:false});
-	materials[Lambert][ORANGE]["Base"].color.setRGB(0.4,0.22,0.027);
+	materials[Lambert][ORANGE]["Base"].color.setRGB(0.95,0.95,0.95);
 	
-	materials[Basic][ORANGE]["Base"] = new THREE.MeshBasicMaterial({color: 0xFFD000, wireframe: false});
+    materials[Basic][ORANGE]["Base"] = new THREE.MeshBasicMaterial({ color: 0xf1f1f1, wireframe: false});
 	
 	materials[Phong][ORANGE]["Leaf"] = new THREE.MeshPhongMaterial({color: 0x00ff00, shininess:5, wireframe: false});
-	materials[Phong][ORANGE]["Leaf"].specular.setRGB(0.08, 0.08, 0.08);
+	materials[Phong][ORANGE]["Leaf"].specular.setRGB(0.05,0.05,0.05);
 	
 	materials[Lambert][ORANGE]["Leaf"] = new THREE.MeshLambertMaterial({color:0x00ff00, wireframe:false});
 	
@@ -100,13 +100,13 @@ function fillMaterials()
 	materials[Basic][CHEERIO] = {};
 	
 	materials[Phong][CHEERIO]["Base"] = new THREE.MeshPhongMaterial({wireframe:false});
-	materials[Phong][CHEERIO]["Base"].color.setRGB(0.9, 0.27, 0.1);
+	materials[Phong][CHEERIO]["Base"].color.setRGB(150/254, 230/254, 245/254);
 	materials[Phong][CHEERIO]["Base"].specular.setRGB(0.01, 0.01, 0.01);
 	
 	materials[Lambert][CHEERIO]["Base"] = new THREE.MeshLambertMaterial({wireframe:false});
-	materials[Lambert][CHEERIO]["Base"].color.setRGB(0.9, 0.27, 0);
+    materials[Lambert][CHEERIO]["Base"].color.setRGB(150 / 254, 230 / 254, 245 / 254);
 	
-	materials[Basic][CHEERIO]["Base"] =  new THREE.MeshBasicMaterial( { color: 0xE18700 });
+    materials[Basic][CHEERIO]["Base"] = new THREE.MeshBasicMaterial({ color: 0x96e6f5});
 	
 
 }

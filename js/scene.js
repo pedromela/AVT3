@@ -12,7 +12,7 @@ function createScene(ncherios1,ncherios2,noranges,nbutters){
     createCar(0, 16.1, 55);
     createMirror();
     createBillboard();
-    createCattails(5);
+    //createCattails(5);
 
 	addCheerios(ncherios1); //creates the iner ring
   	addCheerios(ncherios2); //creates the outher ring

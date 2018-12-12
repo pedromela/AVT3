@@ -42,7 +42,7 @@ function createOrange(x,y,z){
   orange.add(mesh);
   orange.position.set(x,y,z);
 
-  addOrangeLeaf(x, y, z, orange);
+  //addOrangeLeaf(x, y, z, orange);
   
   orange.castShadow = true;
   
