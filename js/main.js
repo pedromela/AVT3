@@ -11,6 +11,7 @@ var geometry, material, mesh;
 
 var car, track, terrain, controls;
 var cameraOrtog, cameraPerspective, cameraCar, cameraLives, cameraAtual;
+var score = 0, checkpoint = 0;
 
 var trackCoord = [[-100,15],[20,-50],[-30,110],[-10,-100],[-20,20],[-2,-70],[-8,20],[-32,20],[120,-25],[170,-22],[34,-42],[5,-50],[50,20],[5,90],[-25,-45],[-5,30],[-150,-10],[-25,-20],[-3,-30],[20,-55],[-32,-47],[16,-40],[21,-180],[39,-49]];
 var memory =[];
@@ -216,6 +217,11 @@ function init(){
 function getRandomInt(min, max) 
 {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function updateScore(n){
+	score = score + n;
+	document.getElementById("score").innerHTML = "<h1>"+score+"</h1>";
 }
 
 

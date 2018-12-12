@@ -253,6 +253,9 @@ function gameEnd()
 function resetGame()
 {
 	gameOver = false;
+	score = 0;
+	updateScore(0);
+	checkpoint = 0;
 
 	clock.start();
 	box_game_over.material.transparent = true;
