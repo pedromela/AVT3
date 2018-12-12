@@ -25,7 +25,9 @@ function mov(obj)
 		//check board limits
 		if(Math.abs(obj.position.x) >= track.userData.xMax || Math.abs(obj.position.z) >= track.userData.zMax)
 		{
-			resetCar()
+			car.userData.vel = 0;
+			car.position.set(0, 16.1, 55);
+			car.rotation.y = 0;
 			carLives[nlives-1].visible = false;
 			nlives -= 1;
 			console.log('colision');

@@ -41,9 +41,11 @@ function treatCollision(obj1, obj2)
 	
 	if(obj1.userData.type == ORANGE && obj2.position.x != 0 && obj2.position.z != 55)
 	{
-		resetCar();
-		carLives[nlives-1].visible = false;
+		car.userData.vel = 0;
+		car.position.set(0, 16.1, 55);
+		car.rotation.y = 0;
 		nlives -= 1;
+		carLives[nlives].visible = false;
 		console.log('colision');
 		updateScore(-2);
 		if (nlives == 0){gameOver = true;
